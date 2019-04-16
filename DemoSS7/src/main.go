@@ -3,5 +3,5 @@ package main
 import "marshal"
 
 func main() {
-	marshal.Demo1()
+	marshal.Demo2()
 }
