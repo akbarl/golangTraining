@@ -1,0 +1,125 @@
+use session6
+
+db.createCollection('product')
+
+db.getCollection('product').insert({
+	name: 'mobile 1',
+	price: 4.5,
+	quantity: 10,
+	status: true
+})
+
+db.getCollection('product').insert({
+	name: 'computer 2',
+	price: 5,
+	quantity: 11,
+	status: true
+})
+
+db.getCollection('product').insert({
+	name: 'laptop 3',
+	price: 99,
+	quantity: 10,
+	status: true
+})
+
+db.getCollection('product').insert({
+	name: 'lumia 4',
+	price: 4.5,
+	quantity: 15,
+	status: false
+})
+
+db.getCollection('product').find({})
+
+db.getCollection('product').find({
+	status: true
+})
+
+db.getCollection('product').find({
+	price: {$lt : 8}
+})
+
+db.getCollection('product').find({
+	price: {$lte : 8}
+})
+
+db.getCollection('product').find({
+	price: {$gt : 8}
+})
+
+db.getCollection('product').find({
+	price: {$gte : 8}
+})
+
+db.getCollection('product').find({
+	$and: [
+		{price : {$gte: 5}},
+		{price : {$lte: 10}}
+	]
+})
+
+db.getCollection('product').find({
+	$or: [
+		{price : 5},
+		{price : 10}
+	]
+})
+
+db.getCollection('product').find({
+	price: {$ne : 5}
+})
+
+startWith
+db.getCollection('product').find({
+	name : /^mo/
+})
+
+endWith
+db.getCollection('product').find({
+	name : /abc$/
+})
+
+LIKE %%
+db.getCollection('product').find({
+	name : /mo/
+})
+
+desc
+db.getCollection('product').find({
+}).sort({price: -1})
+
+asc
+db.getCollection('product').find({
+}).sort({price: 1})
+
+limit,skip=begin at
+
+db.getCollection('product').find({
+}).sort({price: -1}).limit(2).skip(1)
+
+
+select specific: 1 display
+db.getCollection('product').find({}, {
+	_id : 1,
+	name : 1,
+	price: 1
+})
+
+db.getCollection('product').update(
+	{ 
+		name : ObjectId('5cbebc958f9b4012422d32ab')
+	},
+	{
+		$set : {
+			name : 'abc',
+			price : 9999
+		}
+	}
+)
+
+db.getCollection('product').remove(
+	{ 
+		_id : ObjectId('5cbebc958f9b4012422d32ab')
+	}
+)
