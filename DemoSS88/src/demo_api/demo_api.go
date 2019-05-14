@@ -16,3 +16,11 @@ func Demo2(response http.ResponseWriter, request *http.Request) {
 func Demo3(response http.ResponseWriter, request *http.Request) {
 	fmt.Fprint(response, "World")
 }
+
+func Demo4(response http.ResponseWriter, request *http.Request) {
+	fmt.Fprint(response, "demo4")
+}
+
+func Demo5(response http.ResponseWriter, request *http.Request) {
+	fmt.Fprint(response, "demo5")
+}
